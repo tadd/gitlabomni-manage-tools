@@ -9,6 +9,9 @@ RSpec.describe GitLabOmnibusManage do
 
       # check can run with TestPkg
       GitLabOmnibusManage::Application.new(pkg: TestPkg).run(['check'])
+
+      # show-template can run with TestPkg
+      GitLabOmnibusManage::Application.new(pkg: TestPkg).run(['show-template'])
     end
   end
 end

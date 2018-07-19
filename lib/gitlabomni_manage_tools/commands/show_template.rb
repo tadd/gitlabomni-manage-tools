@@ -17,7 +17,7 @@ module GitLabOmnibusManage
     end
 
     def command_show_template
-      target_version = get_target_version(@pkg, options)
+      target_version = ShowTemplateCommand.get_target_version(@pkg, options)
 
       puts GitLabOmnibusManage::Util.get_gitlab_template(target_version)
     end
