@@ -4,11 +4,11 @@ require_relative '../util/base'
 
 module GitLabOmnibusManage
   module SubCommands
-    module UpdateCommand
+    module UpgradeCommand
       module_function
 
-      def update_gitlab(pkg, options)
-        pkg.update_command(
+      def upgrade_gitlab(pkg, options)
+        pkg.upgrade_command(
           quiet: options[:quiet],
           yes: options[:yes]
         ).split("\n").each do |command|
@@ -33,7 +33,7 @@ module GitLabOmnibusManage
       end
     end
 
-    def command_update
+    def command_upgrade
       current_ver = @pkg.current_version
       available_ver = @pkg.available_version
 
@@ -43,15 +43,15 @@ module GitLabOmnibusManage
       end
 
       Lockfile(File.join(@config.cache_dir, 'update.lock')) do
-        UpdateCommand.update_gitlab(@pkg, options)
+        UpgradeCommand.upgrade_gitlab(@pkg, options)
 
         edit_gitlab_conf = !options[:yes]
 
         if edit_gitlab_conf
-          edit_gitlab_conf = UpdateCommand.ask_edit_gitlab_conf
+          edit_gitlab_conf = UpgradeCommand.ask_edit_gitlab_conf
         end
 
-        UpdateCommand.edit_gitlab_conf(options) if edit_gitlab_conf
+        UpgradeCommand.edit_gitlab_conf(options) if edit_gitlab_conf
       end
     end
   end
