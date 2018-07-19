@@ -51,7 +51,7 @@ module GitLabOmnibusManage
           .strip
       end
 
-      def update_command(options = {})
+      def upgrade_command(options = {})
         upgrade_args = []
 
         if options[:quiet]

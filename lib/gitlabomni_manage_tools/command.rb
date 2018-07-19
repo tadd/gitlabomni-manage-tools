@@ -55,13 +55,23 @@ module GitLabOmnibusManage
       command_show_template
     end
 
-    desc 'update [options]', 'update gitlab package'
+    desc 'update [options]', 'update gitlab package (deplicated. Use `upgrade`)'
     method_option :yes, type: :boolean, default: false,
       aliases: [:y], desc: 'force updating'
     method_option :quiet, type: :boolean, default: false,
       aliases: [:q], desc: 'quiet updating'
     def update
-      command_update
+      STDERR.puts 'Use `upgrade` instead of `update`.'
+      command_upgrade
+    end
+
+    desc 'upgrade [options]', 'upgrade gitlab package'
+    method_option :yes, type: :boolean, default: false,
+      aliases: [:y], desc: 'force upgrading'
+    method_option :quiet, type: :boolean, default: false,
+      aliases: [:q], desc: 'quiet upgrading'
+    def upgrade
+      command_upgrade
     end
 
     desc 'update-index [options]', 'update package index'
