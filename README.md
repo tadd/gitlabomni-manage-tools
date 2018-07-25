@@ -23,7 +23,7 @@ This command notifies you if new version was available.
 ### Update
 
 ```bash
-gitlab-manage update
+gitlab-manage upgrade
 ```
 
 Update gitlab omnibus package if new version was available.

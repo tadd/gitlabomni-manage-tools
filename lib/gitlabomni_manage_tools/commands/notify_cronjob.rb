@@ -139,7 +139,7 @@ module GitLabOmnibusManage
               if config.mail_use_primitive_command
                 pkg.update_command
               else
-                'gitlab-manage update'
+                'gitlab-manage upgrade'
               end
           }
         }
