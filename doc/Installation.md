@@ -76,7 +76,7 @@ Notice:
 6. Add cron task(Optional):
 
     ```bash
-    $ sudo apt-get install -y crontab
+    $ sudo apt install -y cron
     $ sudo crontab -e -u root
     + 15 04 * * * /usr/local/bin/gitlab-manage notify-cronjob 2>&1 | /usr/bin/logger -t gitlab-manage
     ```
