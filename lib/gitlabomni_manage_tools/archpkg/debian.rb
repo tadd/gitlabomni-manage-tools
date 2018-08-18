@@ -26,7 +26,7 @@ module GitLabOmnibusManage
     end
 
     module Debian
-      PKG_NAME = 'gitlab-ce'
+      PKG_NAME = 'gitlab-ee'
 
       module_function
 
