@@ -48,6 +48,11 @@ module GitLabOmnibusManage
             delivery_options[:enable_starttls_auto] = false
           end
 
+          delivery_options = Util.deep_merge_hash(
+            config.mail_index(:options),
+            delivery_options
+          )
+
           mail.delivery_method(
             :smtp,
             delivery_options
