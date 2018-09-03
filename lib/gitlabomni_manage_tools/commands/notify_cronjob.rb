@@ -2,6 +2,7 @@
 
 require 'lockfile'
 require 'mail'
+require 'openssl'
 
 require_relative '../util/base'
 require_relative '../util/gitlabomni'
@@ -42,16 +43,17 @@ module GitLabOmnibusManage
           delivery_options = {}
           delivery_options[:address] = config.mail_host
           delivery_options[:port] = config.mail_port
+          delivery_options[:openssl_verify_mode] = OpenSSL::SSL::VERIFY_PEER
+
           if config.mail_disable_tls
             delivery_options[:tls] = false
             delivery_options[:enable_starttls] = false
             delivery_options[:enable_starttls_auto] = false
           end
 
-          delivery_options = Util.deep_merge_hash(
-            config.mail_index(:options),
-            delivery_options
-          )
+          config.mail_index(:options).each do |k, v|
+            delivery_options[k.to_sym] = v
+          end
 
           mail.delivery_method(
             :smtp,
