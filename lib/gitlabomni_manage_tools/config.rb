@@ -44,34 +44,42 @@ module GitLabOmnibusManage
             'to' => "root@#{hostname}",
             'disable_tls' => false,
             'show_diff' => true,
-            'use_primitive_command' => false
+            'use_primitive_command' => false,
+            'options' => {}
           }
         }
       end
     end
 
     def initialize(datas) # rubocop:disable Metrics/AbcSize
-      datas = Util.deep_merge_hash(
+      @datas = Util.deep_merge_hash(
         datas, Config.default_config
       )
 
       # general
-      @data_dir = datas['general']['data_dir']
-      @cache_dir = datas['general']['cache_dir']
+      @data_dir = @datas['general']['data_dir']
+      @cache_dir = @datas['general']['cache_dir']
 
       # mail
       @mail =
-        if datas['mail']['enable']
+        if @datas['mail']['enable']
           {
-            host: datas['mail']['host'],
-            port: datas['mail']['port'],
-            from: datas['mail']['from'],
-            to: datas['mail']['to'],
-            disable_tls: datas['mail']['disable_tls'],
-            show_diff: datas['mail']['show_diff'],
-            use_primitive_command: datas['mail']['use_primitive_command']
+            host: @datas['mail']['host'],
+            port: @datas['mail']['port'],
+            from: @datas['mail']['from'],
+            to: @datas['mail']['to'],
+            disable_tls: @datas['mail']['disable_tls'],
+            show_diff: @datas['mail']['show_diff'],
+            use_primitive_command: @datas['mail']['use_primitive_command'],
+            options: @datas['mail']['options']
           }
+        else
+          {}
         end
+    end
+
+    def [](key)
+      @datas[key]
     end
 
     # general
@@ -79,6 +87,10 @@ module GitLabOmnibusManage
     attr_reader :cache_dir
 
     # mail
+    def mail_index(key)
+      @mail[key]
+    end
+
     def use_mail?
       !@mail.nil?
     end

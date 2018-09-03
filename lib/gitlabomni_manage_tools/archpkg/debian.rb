@@ -61,7 +61,7 @@ module GitLabOmnibusManage
         upgrade_args.push('-y') if options[:yes]
 
         <<~COMMAND
-          apt-get install #{upgrade_args.join(' ')} gitlab-ce
+          apt-get install #{upgrade_args.join(' ')} #{PKG_NAME}
         COMMAND
           .strip
       end
