@@ -21,7 +21,7 @@ Notice:
 
     ```bash
     sudo /opt/gitlab/embedded/bin/git clone \
-      https://github.com/uecmma/gitlabomni-manage-tools.git \
+      https://github.com/mizunashi-mana/gitlabomni-manage-tools.git \
       /opt/gitlab-manage # install on `/opt/gitlab-manage` directory
     ```
 
