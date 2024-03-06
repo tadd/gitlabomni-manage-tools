@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.license = 'MIT'
   spec.required_ruby_version = '>=3.1'
 
-  spec.authors = 'mizunashi-mana'
+  spec.authors = ['Tadashi Saito', 'mizunashi-mana']
 
   spec.summary = 'This tools provide some features for GitLab Omnibus management'
   spec.description = <<~DESCRIPTION
@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
       * Notify new updates of GitLab Omnibus for manager.
       * Update GitLab Omnibus more easily.
   DESCRIPTION
-  spec.homepage = 'https://github.com/mizunashi-mana/gitlabomni-manage-tools'
+  spec.homepage = 'https://github.com/tadd/gitlabomni-manage-tools'
 
   spec.platform = Gem::Platform::RUBY
 
