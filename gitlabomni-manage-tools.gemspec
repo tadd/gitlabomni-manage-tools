@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'gitlabomni_manage_tools/version'
@@ -10,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.version = GitLabOmnibusManage::VERSION
   spec.date = Time.now.strftime('%Y-%m-%d')
   spec.license = 'MIT'
+  spec.required_ruby_version = '>=3.1'
 
   spec.authors = 'mizunashi-mana'
 

@@ -6,7 +6,7 @@ require 'openssl'
 
 require_relative '../util/base'
 require_relative '../util/gitlabomni'
-require_relative './update_index.rb'
+require_relative './update_index'
 
 module GitLabOmnibusManage
   module SubCommands
@@ -140,7 +140,7 @@ module GitLabOmnibusManage
             current: pkg.current_version,
             available: pkg.available_version
           },
-          template_diff: template_diff,
+          template_diff:,
           command: {
             update:
               if config.mail_use_primitive_command

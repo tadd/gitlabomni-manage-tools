@@ -26,7 +26,7 @@ module GitLabOmnibusManage
 
     def gitlabpkg
       case Gem::Platform.local.os
-      when 'linux' then
+      when 'linux'
         gitlabpkg_linux
       else
         raise NotSupportedPlatformError, 'not supported platform'

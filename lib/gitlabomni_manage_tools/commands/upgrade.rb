@@ -29,7 +29,7 @@ module GitLabOmnibusManage
 
       def edit_gitlab_conf(options)
         system(ENV['EDITOR'] || 'vi', '/etc/gitlab/gitlab.rb')
-        `gitlab-ctl reconfigure#{ options[:quiet] ? ' > /dev/null' : '' }`
+        `gitlab-ctl reconfigure#{options[:quiet] ? ' > /dev/null' : ''}`
       end
     end
 

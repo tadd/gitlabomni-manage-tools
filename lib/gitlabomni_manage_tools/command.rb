@@ -61,7 +61,7 @@ module GitLabOmnibusManage
     method_option :quiet, type: :boolean, default: false,
       aliases: [:q], desc: 'quiet updating'
     def update
-      STDERR.puts 'Use `upgrade` instead of `update`.'
+      warn 'Use `upgrade` instead of `update`.'
       command_upgrade
     end
 

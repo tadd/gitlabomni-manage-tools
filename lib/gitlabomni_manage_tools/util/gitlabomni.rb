@@ -43,7 +43,7 @@ module GitLabOmnibusManage
     def diff_gitlab_url(from, to)
       format(
         'https://gitlab.com/gitlab-org/omnibus-gitlab/compare/%<from>s...%<to>s',
-        from: from, to: to
+        from:, to:
       )
     end
   end

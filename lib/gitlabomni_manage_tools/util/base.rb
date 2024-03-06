@@ -60,7 +60,7 @@ module GitLabOmnibusManage
     end
 
     def hostfullname
-      Socket.gethostbyname(Socket.gethostname).first
+      Addrinfo.getaddrinfo(Socket.gethostname, nil)[0].getnameinfo[0]
     rescue SocketError
       'localhost'
     end
@@ -76,7 +76,7 @@ module GitLabOmnibusManage
         return true if s.start_with?('y')
         return default if s == ''
 
-        STDERR.puts 'type `yes` or `no`'
+        warn 'type `yes` or `no`'
         print ask_message
       end
 

@@ -8,14 +8,14 @@ GITLAB_INSTALLATION_ERROR_CODE = 8
 
 begin
   GitLabOmnibusManage.application.run
-rescue GitLabOmnibusManage::Util::NotSupportedPlatformError => _err
-  STDERR.puts 'This platform is not supported.'
+rescue GitLabOmnibusManage::Util::NotSupportedPlatformError => _e
+  warn 'This platform is not supported.'
   # STDERR.puts "#{err.message}"
 
   exit NOT_SUPPORTED_PLATFORM_CODE
-rescue GitLabOmnibusManage::Util::GitLabInstallationError => _err
-  STDERR.puts 'Maybe, gitlab is not installed.'
-  STDERR.puts 'You should install gitlab-ce or report this bug if you installed.'
+rescue GitLabOmnibusManage::Util::GitLabInstallationError => _e
+  warn 'Maybe, gitlab is not installed.'
+  warn 'You should install gitlab-ce or report this bug if you installed.'
   # STDERR.puts "#{err.message}"
 
   exit GITLAB_INSTALLATION_ERROR_CODE
